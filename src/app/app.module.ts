@@ -38,6 +38,7 @@ import {
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
 import { ProfileModule } from './views/profile/profile.module';
+import { HttpClientModule } from '@angular/common/http';
 
 const APP_CONTAINERS = [
   DefaultFooterComponent,
@@ -74,7 +75,8 @@ const APP_CONTAINERS = [
     ListGroupModule,
     CardModule,
     NgScrollbarModule,
-    ProfileModule
+    ProfileModule,
+    HttpClientModule
   ],
   providers: [
     {
