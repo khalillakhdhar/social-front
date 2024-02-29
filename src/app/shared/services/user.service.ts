@@ -5,37 +5,41 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserService {
-  // crud and other methods from url http://localhost:3000/api/auth
-   url="http://localhost:3000/api";
+  // Use proxy for development
+  url = '/api';
+
   constructor(private http: HttpClient) { }
  
-  login(user:any){
+  login(user: any) {
     console.log(user);
-    // post data or return error
-    return this.http.post(this.url+"/auth",user);
+    // Post data or return error
+    return this.http.post(`${this.url}/auth`, user);
   }
-  register(user:any){
-    console.log(user);
-    // post data or return error
-    return this.http.post(this.url+"/user",user);
-  }
-  getUsers(){
-    // get data or return error
-    return this.http.get(this.url+"/user");
-  }
-  getUser(id:number){
-    // get data or return error
-    return this.http.get(this.url+"/user/"+id);
-  }
-  updateUser(id:number,user:any){
-    console.log(user);
-    // put data or return error
-    return this.http.put(this.url+"/user/"+id,user);
-  }
-  deleteUser(id:number){
-    // delete data or return error
-    return this.http.delete(this.url+"/user/"+id);
-  }
-  
 
+  register(user: any) {
+    console.log(user);
+    // Post data or return error
+    return this.http.post(`${this.url}/user`, user);
+  }
+
+  getUsers() {
+    // Get data or return error
+    return this.http.get(`${this.url}/user`);
+  }
+
+  getUser(id: number) {
+    // Get data or return error
+    return this.http.get(`${this.url}/user/${id}`);
+  }
+
+  updateUser(id: number, user: any) {
+    console.log(user);
+    // Put data or return error
+    return this.http.put(`${this.url}/user/${id}`, user);
+  }
+
+  deleteUser(id: number) {
+    // Delete data or return error
+    return this.http.delete(`${this.url}/user/${id}`);
+  }
 }

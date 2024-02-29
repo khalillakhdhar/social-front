@@ -19,7 +19,13 @@ export class LoginComponent {
     this.userService.login(us).subscribe(
       (data:any)=>{
         console.log(data);
-        localStorage.setItem('token',data.token);
+        localStorage.setItem('token',data);
+        // extract id from token
+        let token=data.split('.')[1];
+        let tokenData=JSON.parse(atob(token));
+        console.log(tokenData);
+        
+ 
       });
     
   }
