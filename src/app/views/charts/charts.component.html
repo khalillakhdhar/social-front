@@ -6,10 +6,38 @@
     <c-col xs="12" lg="12">
       <c-card class="mb-4">
         <c-card-header>
-          Bar Chart
-        </c-card-header>
+Publications        </c-card-header>
         <c-card-body>
-on gérera ici les publications
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>publication</th>
+      <th>publié par</th>
+      <th>Commentaires</th>
+      <th>action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let publication of publications">
+      <td>{{ publication.text }}</td>
+      <td>{{ publication.publieur.nom+" "+  publication.publieur.prenom}}</td>
+     
+      <td>
+<ul *ngIf="publication.commentaires.length>0">
+  <li  *ngFor="let commentaire of publication.commentaires">
+    {{commentaire.text}} / {{commentaire.publieur.nom+" "+  commentaire.publieur.prenom}}
+  </li>
+</ul>
+<span *ngIf="publication.commentaires.length==0">
+Aucun commentaire
+</span>
+      </td>
+      <td>
+        <button (click)="deletePublication(publication)"  class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 
         </c-card-body>

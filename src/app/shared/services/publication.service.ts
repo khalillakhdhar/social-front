@@ -21,4 +21,8 @@ url="api/publication";
   {
     return this.http.post<Publication>(this.url,pub);
   }
+  deletePublication(id:number):Observable<Publication>
+  {
+    return this.http.delete<Publication>(this.url+"/"+id);
+  }
 }
