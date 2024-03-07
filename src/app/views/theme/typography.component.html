@@ -4,7 +4,84 @@
       Headings
     </c-card-header>
     <c-card-body>
-    liste des user et des groupes
+  <!-- deux colonne adjascente-->
+  <c-row>
+    <h2>Liste des utilisateur</h2>
+    <table class="table table-bordered">
+
+      <thead>
+        <tr>
+          <th>nom</th>
+          <th>prenom</th>
+          <th>email</th>
+          <th>age</th>
+          <th>action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.nom }}</td>
+          <td>{{ user.prenom }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.age }}</td>
+          <td>
+            <button (click)="deleteUser(user)"  class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </c-row>
+    <h2>Liste des groupes &nbsp;<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      +
+    </button></h2>
+    <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter un groupe</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <form>
+          <div class="mb-3">
+            <label for="titre" class="form-label">Titre</label>
+            <input type="text" class="form-control" id="titre" name="titre" [(ngModel)]="groupe.titre">
+          </div>
+          <div class="mb-3">
+            <label for="sujet" class="form-label">Sujet</label>
+            <input type="text" class="form-control" id="sujet" name="sujet" [(ngModel)]="groupe.sujet">
+          </div>
+          <button type="button" class="btn btn-primary" (click)="addGroupe()">Ajouter</button>
+       </form>
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>
+</div>
+    <c-row>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>titre</th>
+            <th>Sujet</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let gr of groupes">
+            <td>{{ gr.titre }}</td>
+            <td>{{ gr.sujet }}</td>
+            <td>
+              <button  class="btn btn-danger">Delete</button>
+          </tr>
+      </table>
+    </c-row>
     </c-card-body>
   </c-card>
  
