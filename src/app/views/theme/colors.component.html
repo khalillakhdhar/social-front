@@ -5,8 +5,38 @@
     </c-card-header>
     <c-card-body>
       <c-row>
-     here will be the user form
-
+        <form >
+          <h1>Compte</h1>
+          <p class="text-medium-emphasis">Modifier compte</p>
+          <div class="mb-3">
+            <span cInputGroupText>
+            </span>
+            <input autoComplete="name"  name="nom" [(ngModel)]="current.nom" class="form-control" placeholder="nom" />
+          </div>
+          <div class="mb-3">
+            <span cInputGroupText>
+            </span>
+            <input autoComplete="prenom" class="form-control" placeholder="prenom" name="prenom" [(ngModel)]="current.prenom" />
+          </div>
+          <div class="mb-3">
+            <input autoComplete="email" class="form-control" placeholder="email" [(ngModel)]="current.email" name="email" />
+          </div>
+         
+          <div class="mb-3">
+            <span cInputGroupText>
+            </span>
+            <input autoComplete="age" name="age" [(ngModel)]="current.age" class="form-control" placeholder="age" />
+          </div>
+          <div class="mb-3">
+            <span cInputGroupText>
+            </span>
+            <textarea autoComplete="email" class="form-control" placeholder="adresse" name="adresse" [(ngModel)]="current.adresses" >
+            </textarea>
+          </div>
+          <div class="d-grid">
+            <button (click)="update()" class="btn btn-primary" color="success">S'inscrire</button>
+          </div>
+        </form>
 
 
 

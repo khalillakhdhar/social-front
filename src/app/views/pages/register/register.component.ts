@@ -19,6 +19,8 @@ user={} as User;
       (data:any)=>{
         console.log(data);
        // localStorage.setItem('token',data.token);
+       // 
+       window.location.href="/#/login";
       });
     
   }

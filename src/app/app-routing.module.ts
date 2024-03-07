@@ -6,6 +6,7 @@ import { Page404Component } from './views/pages/page404/page404.component';
 import { Page500Component } from './views/pages/page500/page500.component';
 import { LoginComponent } from './views/pages/login/login.component';
 import { RegisterComponent } from './views/pages/register/register.component';
+import { AuthguardService } from './shared/services/authguard.service';
 
 const routes: Routes = [
   {
@@ -23,7 +24,8 @@ const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: () =>
-          import('./views/dashboard/dashboard.module').then((m) => m.DashboardModule)
+          import('./views/dashboard/dashboard.module').then((m) => m.DashboardModule),
+          canActivate: [AuthguardService]
       },
       // profile module
       {
@@ -34,7 +36,8 @@ const routes: Routes = [
       {
         path: 'theme',
         loadChildren: () =>
-          import('./views/theme/theme.module').then((m) => m.ThemeModule)
+          import('./views/theme/theme.module').then((m) => m.ThemeModule),
+          canActivate: [AuthguardService]
       },
       {
         path: 'base',
@@ -54,7 +57,8 @@ const routes: Routes = [
       {
         path: 'charts',
         loadChildren: () =>
-          import('./views/charts/charts.module').then((m) => m.ChartsModule)
+          import('./views/charts/charts.module').then((m) => m.ChartsModule),
+          canActivate: [AuthguardService]
       },
       {
         path: 'icons',

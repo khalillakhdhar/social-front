@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PublicationService {
-url=http://localhost:3000/api/publication;
+url="api/publication";
   constructor(private http:HttpClient) { }
   getPublications():Observable<Publication[]>
   {

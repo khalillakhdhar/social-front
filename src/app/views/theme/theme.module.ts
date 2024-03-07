@@ -9,6 +9,7 @@ import { TypographyComponent } from './typography.component';
 
 // Theme Routing
 import { ThemeRoutingModule } from './theme-routing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { ThemeRoutingModule } from './theme-routing.module';
     UtilitiesModule,
     IconModule,
     NavModule,
+    FormsModule,
     TabsModule
   ],
   declarations: [

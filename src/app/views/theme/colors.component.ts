@@ -2,17 +2,36 @@ import { AfterViewInit, Component, HostBinding, Inject, Input, OnInit, Renderer2
 import { DOCUMENT } from '@angular/common';
 
 import { getStyle, rgbToHex } from '@coreui/utils';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
   templateUrl: 'colors.component.html'
 })
 export class ColorsComponent implements OnInit, AfterViewInit {
-
+current:any;
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private userService:UserService
+
   ) {
+    let data=localStorage.getItem('token')|| {} as string;
+    // extract id from token
+    let token=data.split('.')[1];
+    // decode base64
+    // read id
+    
+    let tokenData=JSON.parse(atob(token));
+    console.log(tokenData);
+    this.userService.getUser(tokenData.id).subscribe(
+      (data:any)=>{
+        console.log(data);
+        this.current=data;
+      });
+
   }
+update()
+{}
 
   public themeColors(): void {
     Array.from(this.document.querySelectorAll('.theme-color')).forEach(

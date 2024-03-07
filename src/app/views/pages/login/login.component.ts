@@ -10,7 +10,10 @@ import { UserService } from '../../../shared/services/user.service';
 export class LoginComponent {
   user={} as User;
 
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService) { 
+    localStorage.removeItem('token');
+    localStorage.clear();
+  }
   logUser()
   {
     let us=Object.assign({},this.user);
@@ -22,8 +25,13 @@ export class LoginComponent {
         localStorage.setItem('token',data);
         // extract id from token
         let token=data.split('.')[1];
+        // decode base64
+        // read id
+        
         let tokenData=JSON.parse(atob(token));
         console.log(tokenData);
+        // redirect to http://localhost:4200/#/dashboard
+        window.location.href="/#/dashboard";
         
  
       });
